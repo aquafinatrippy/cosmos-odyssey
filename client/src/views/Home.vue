@@ -1,15 +1,15 @@
 <template>
-  <hello-world />
+  <solar-system />
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+import SolarSystem from '../components/SolarSystem.vue'
 
   export default {
     name: 'Home',
 
     components: {
-      HelloWorld,
+      SolarSystem,
     },
   }
 </script>
