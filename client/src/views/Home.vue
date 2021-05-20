@@ -39,7 +39,6 @@ import SolarSystem from '../components/SolarSystem.vue'
         {name: "Saturn"},
         {name: "Uranus"},
         {name: "Neptune"},
-        
       ]
     }),
     components: {
@@ -47,3 +46,12 @@ import SolarSystem from '../components/SolarSystem.vue'
     },
   }
 </script>
+
+<style lang="scss">
+.planetList{
+      width: 30%;
+    position: absolute;
+    z-index: 1;
+    opacity: 0.9;
+}
+</style>
