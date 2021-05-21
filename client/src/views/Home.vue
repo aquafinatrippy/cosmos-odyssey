@@ -1,57 +1,16 @@
 <template>
-<div>
-  <div class="planetList">
-    <v-list rounded>
-      <v-subheader>Select start route</v-subheader>
-      <v-list-item-group
-        v-model="selectedItem"
-        color="primary"
-      >
-        <v-list-item
-          v-for="(destination, i) in destinations"
-          :key="i"
-        >
-          
-          <v-list-item-content>
-            <v-list-item-title v-text="destination.name"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
-  </div>
-  <solar-system />
-</div>
+  <hello-world />
 </template>
 
-<script>
-import SolarSystem from '../components/SolarSystem.vue'
+<script lang="ts">
+  import Vue from 'vue'
+  import HelloWorld from '../components/HelloWorld.vue'
 
-  export default {
+  export default Vue.extend({
     name: 'Home',
-    data: () => ({
-      selectedItem: 1,
-      destinations: [
-        {name: "Earth"},
-        {name: "Mercury"},
-        {name: "Venus"},
-        {name: "Mars"},
-        {name: "Jupiter"},
-        {name: "Saturn"},
-        {name: "Uranus"},
-        {name: "Neptune"},
-      ]
-    }),
-    components: {
-      SolarSystem,
-    },
-  }
-</script>
 
-<style lang="scss">
-.planetList{
-      width: 30%;
-    position: absolute;
-    z-index: 1;
-    opacity: 0.9;
-}
-</style>
+    components: {
+      HelloWorld,
+    },
+  })
+</script>
