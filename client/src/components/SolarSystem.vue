@@ -1,15 +1,35 @@
 <template>
   <v-container>
-    <v-row class="planetsRow">
+    <!-- <v-row class="planetsRow" v-for="k in 3" :key="k">
       <v-col
-        v-for="(planet, index) in planets"
+        v-for="(planet, index) in getRightPlanets(k)"
         :key="index"
         class="planetCol"
-        md="6"
+        md="4"
         sm="12"
       >
-        <Planet :PlanetTexture="planet.texture" />
+        <Planet :PlanetName="planet.name" :PlanetTexture="planet.texture" />
       </v-col>
+    </v-row>
+
+    
+    <v-row v-for="j in justify" :key="j" :justify="j">
+
+      <v-col
+        v-for="k in 2"
+        :key="k"
+        :md="j === 'space-between' ? 12 : 4"
+      >
+        <v-card class="pa-2" outlined tile>
+          j = {{ j }}
+          One of two columns
+        </v-card>
+      </v-col>
+    </v-row> -->
+
+
+    <v-row>
+      
     </v-row>
   </v-container>
 </template>
@@ -60,9 +80,21 @@ export default Vue.extend({
         texture: "textures/neptune.jpg",
       },
     ],
+    justify: ["start", "center", "end", "space-around", "space-between"],
   }),
   components: {
     Planet,
+  },
+  methods: {
+    getRightPlanets(row: number): any {
+      if (row === 1) {
+        return this.planets.slice(0, 3);
+      }
+      if (row === 2) {
+        return this.planets.slice(3, 6);
+      }
+      return this.planets.slice(6, 9);
+    },
   },
 });
 </script>
