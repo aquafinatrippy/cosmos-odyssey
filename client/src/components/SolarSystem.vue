@@ -1,37 +1,20 @@
 <template>
-  <v-container>
-    <!-- <v-row class="planetsRow" v-for="k in 3" :key="k">
+  <div>
+    <v-row class="planetsRow">
       <v-col
-        v-for="(planet, index) in getRightPlanets(k)"
+        v-for="(planet, index) in planets"
         :key="index"
         class="planetCol"
-        md="4"
-        sm="12"
+        :md="index >= 4 ? 2 : 1"
+        sm="6"
+        xs="12"
       >
         <Planet :PlanetName="planet.name" :PlanetTexture="planet.texture" />
       </v-col>
     </v-row>
 
-    
-    <v-row v-for="j in justify" :key="j" :justify="j">
-
-      <v-col
-        v-for="k in 2"
-        :key="k"
-        :md="j === 'space-between' ? 12 : 4"
-      >
-        <v-card class="pa-2" outlined tile>
-          j = {{ j }}
-          One of two columns
-        </v-card>
-      </v-col>
-    </v-row> -->
-
-
-    <v-row>
-      
-    </v-row>
-  </v-container>
+    <v-row> </v-row>
+  </div>
 </template>
 
 <script lang="ts">
@@ -43,10 +26,10 @@ export default Vue.extend({
 
   data: () => ({
     planets: [
-      {
-        name: "sun",
-        texture: "textures/sun.png",
-      },
+      // {
+      //   name: "sun",
+      //   texture: "textures/sun.png",
+      // },
       {
         name: "mercury",
         texture: "textures/mercury.jpg",
@@ -80,13 +63,12 @@ export default Vue.extend({
         texture: "textures/neptune.jpg",
       },
     ],
-    justify: ["start", "center", "end", "space-around", "space-between"],
   }),
   components: {
     Planet,
   },
   methods: {
-    getRightPlanets(row: number): any {
+    getRightPlanets(row: number) {
       if (row === 1) {
         return this.planets.slice(0, 3);
       }
@@ -102,6 +84,7 @@ export default Vue.extend({
 <style lang="scss">
 .planetCol {
   position: relative;
+  height: 300px;
 }
 .planetsRow {
   height: 300px;

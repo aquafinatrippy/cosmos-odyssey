@@ -6,9 +6,8 @@
   overflow: hidden;
   box-shadow: 0 0 60px -20px rgba(255, 189, 3, 0.72),
     -14px -15px 40px -10px rgba(255, 238, 191, 0.23);
-  left: 50%;
-  top: 50%;
-  margin: -150px;
+  /* left: 50%; */
+  top: 30%;
   cursor: pointer;
 }
 .planet .mask {
