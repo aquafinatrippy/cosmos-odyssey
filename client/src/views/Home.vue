@@ -1,19 +1,19 @@
 <template>
-  <v-container>
+  <div>
     <SolarSystem />
-    
-  </v-container>
+  </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import SolarSystem from "../components/SolarSystem.vue";
+<script>
+import SolarSystem from "../components/SolarSystem";
 
-export default Vue.extend({
+
+
+export default {
   name: "Home",
 
   components: {
     SolarSystem,
-  },
-});
+  }
+};
 </script>

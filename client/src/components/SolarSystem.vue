@@ -17,11 +17,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script>
 import Planet from "./Planet.vue";
 
-export default Vue.extend({
+export default {
   name: "SolarSystem",
 
   data: () => ({
@@ -67,24 +66,22 @@ export default Vue.extend({
   components: {
     Planet,
   },
-  methods: {
-    getRightPlanets(row: number) {
-      if (row === 1) {
-        return this.planets.slice(0, 3);
-      }
-      if (row === 2) {
-        return this.planets.slice(3, 6);
-      }
-      return this.planets.slice(6, 9);
-    },
-  },
-});
+};
 </script>
 
 <style lang="scss">
 .planetCol {
   position: relative;
   height: 300px;
+  cursor: pointer;
+  &:hover {
+    .planet {
+      border: 3px solid green;
+    }
+    p {
+      color: green;
+    }
+  }
 }
 .planetsRow {
   height: 300px;

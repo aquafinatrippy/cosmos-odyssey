@@ -17,12 +17,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
+<script>
+export default {
   name: "Planet",
   props: ["PlanetTexture", "PlanetName"],
-});
+};
 </script>
 
 <style lang="scss">
@@ -76,6 +75,7 @@ export default Vue.extend({
 #mars {
   width: 60px;
   height: 60px;
+  margin: auto;
   bottom: 20px;
   .background {
     width: 60px;
