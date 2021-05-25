@@ -14,18 +14,18 @@
         :md="index >= 4 ? 2 : 1"
         sm="6"
         cols="12"
+        @click="setSelected(planet.name)"
       >
         <Planet :PlanetName="planet.name" :PlanetTexture="planet.texture">
         </Planet>
       </v-col>
     </v-row>
-
-    <v-row> </v-row>
   </div>
 </template>
 
 <script>
 import Planet from "./Planet.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "SolarSystem",
@@ -73,6 +73,9 @@ export default {
   components: {
     Planet,
   },
+  methods: {
+    ...mapActions(["setSelected"]),
+  },
 };
 </script>
 
@@ -83,18 +86,19 @@ export default {
   cursor: pointer;
   &:hover {
     .planet {
-      border: 3px solid green;
+      border: 1px solid aqua;
     }
     p {
-      color: green;
+      color: aqua;
     }
   }
 }
 .planetsRow {
   height: 300px;
+  margin-top: 10% !important;
 }
 .sunLocation {
   position: absolute;
-  top: -20%;
+  top: -10%;
 }
 </style>

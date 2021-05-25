@@ -1,7 +1,6 @@
 <template>
   <div>
-    
-    <div  class="planetRoot">
+    <div class="planetRoot">
       <div class="planet" :id="PlanetName">
         <div class="wrap">
           <div
@@ -21,12 +20,11 @@
 </template>
 
 <script>
+
 export default {
   name: "Planet",
   props: ["PlanetTexture", "PlanetName"],
-  created() {
-    console.log(this.PlanetName);
-  },
+  
 };
 </script>
 
@@ -46,7 +44,8 @@ export default {
 }
 #jupiter,
 #saturn {
-  .background {
+  .background,
+  .clouds {
     width: 160px;
     height: 160px;
   }
@@ -92,7 +91,8 @@ export default {
 #neptune {
   width: 90px;
   height: 90px;
-  .background {
+  .background,
+  .clouds {
     width: 90px;
     height: 90px;
   }
