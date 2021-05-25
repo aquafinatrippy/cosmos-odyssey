@@ -20,7 +20,13 @@
       {{ endDestination }}
     </v-chip>
     <div v-if="endDestination && selectedPlanet">
-      <v-btn @click="dialog = true" color="success">
+      <v-btn
+        @click="
+          dialog = true;
+          getPriceList();
+        "
+        color="success"
+      >
         Book travel
       </v-btn>
     </div>
@@ -53,7 +59,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import BookTravel from "./BookTravel";
 
 export default {
@@ -70,6 +76,9 @@ export default {
   },
   computed: {
     ...mapGetters(["selectedPlanet", "endDestination"]),
+  },
+  methods: {
+    ...mapActions(["getPriceList"]),
   },
 };
 </script>

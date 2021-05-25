@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -21,6 +22,10 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    async getPriceList(){
+      const {data} = await axios.get('http://cosmos-odyssey.azurewebsites.net/api/v1.0/TravelPrices')
+      console.log(data)
+    },
     setEndDestination({ commit }, planetname) {
       commit("SET_END_DESTINATION", planetname);
     },
