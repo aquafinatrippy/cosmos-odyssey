@@ -1,7 +1,12 @@
 <template>
-  <div>
-    <div class="planetRoot">
-      <div class="planet" :id="PlanetName">
+  <div :class="this.selectedPlanet === '' ? 'allSelectable' : 'otherDisabled'">
+    <div :class="canTravelTo === true ? 'travelAble planetRoot' : 'planetRoot'">
+      <div
+        :class="
+          this.selectedPlanet === PlanetName ? 'planet activated' : 'planet '
+        "
+        :id="PlanetName"
+      >
         <div class="wrap">
           <div
             class="background"
@@ -20,15 +25,41 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 
 export default {
   name: "Planet",
   props: ["PlanetTexture", "PlanetName"],
-  
+  computed: {
+    ...mapGetters(["selectedPlanet", "availableRoutes"]),
+    canTravelTo() {
+      const located = (element) => element === this.PlanetName;
+      return this.availableRoutes.some(located);
+    },
+  },
 };
 </script>
 
 <style lang="scss">
+.otherDisabled {
+  .planet {
+    filter: grayscale(100%);
+    cursor: not-allowed;
+  }
+  .travelAble {
+    .planet {
+      filter: contrast(200%) !important;
+      cursor: pointer;
+    }
+  }
+}
+.activated {
+  border: 1px solid aqua;
+  filter: hue-rotate(90deg) !important;
+  p {
+    color: aqua !important;
+  }
+}
 .planetRoot {
   text-align: center;
 }
@@ -41,6 +72,7 @@ export default {
   width: 300px;
   height: 300px;
   cursor: none;
+  filter: contrast(200%)
 }
 #jupiter,
 #saturn {

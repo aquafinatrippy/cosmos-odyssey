@@ -50,5 +50,12 @@ export default new Vuex.Store({
     },
   },
   modules: {},
-  getters: {},
+  getters: {
+    selectedPlanet: (state) => {
+      return state.selectedPlanet;
+    },
+    availableRoutes: (state) => {
+      return state.availableRoutes;
+    },
+  },
 });
