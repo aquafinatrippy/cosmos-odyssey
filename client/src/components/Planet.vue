@@ -1,19 +1,22 @@
 <template>
-  <div class="planetRoot">
-    <div class="planet" :id="PlanetName">
-      <div class="wrap">
-        <div
-          class="background"
-          :style="{
-            background:
-              'url(' + require(`@/assets/${PlanetTexture}`) + ') repeat-x',
-          }"
-        ></div>
-        <div class="clouds"></div>
+  <div>
+    
+    <div  class="planetRoot">
+      <div class="planet" :id="PlanetName">
+        <div class="wrap">
+          <div
+            class="background"
+            :style="{
+              background:
+                'url(' + require(`@/assets/${PlanetTexture}`) + ') repeat-x',
+            }"
+          ></div>
+          <div class="clouds"></div>
+        </div>
+        <div class="mask"></div>
       </div>
-      <div class="mask"></div>
+      <p class="planetName">{{ PlanetName.toUpperCase() }}</p>
     </div>
-    <p class="planetName">{{ PlanetName.toUpperCase() }}</p>
   </div>
 </template>
 
@@ -21,6 +24,9 @@
 export default {
   name: "Planet",
   props: ["PlanetTexture", "PlanetName"],
+  created() {
+    console.log(this.PlanetName);
+  },
 };
 </script>
 

@@ -1,15 +1,22 @@
 <template>
   <div>
     <v-row class="planetsRow">
+      <div class="sunLocation">
+        <Planet
+          :PlanetName="planets[0].name"
+          :PlanetTexture="planets[0].texture"
+        ></Planet>
+      </div>
       <v-col
-        v-for="(planet, index) in planets"
+        v-for="(planet, index) in planets.slice(1, planets.length)"
         :key="index"
         class="planetCol"
         :md="index >= 4 ? 2 : 1"
         sm="6"
-        xs="12"
+        cols="12"
       >
-        <Planet :PlanetName="planet.name" :PlanetTexture="planet.texture" />
+        <Planet :PlanetName="planet.name" :PlanetTexture="planet.texture">
+        </Planet>
       </v-col>
     </v-row>
 
@@ -25,10 +32,10 @@ export default {
 
   data: () => ({
     planets: [
-      // {
-      //   name: "sun",
-      //   texture: "textures/sun.png",
-      // },
+      {
+        name: "sun",
+        texture: "textures/sun.png",
+      },
       {
         name: "mercury",
         texture: "textures/mercury.jpg",
@@ -85,5 +92,9 @@ export default {
 }
 .planetsRow {
   height: 300px;
+}
+.sunLocation {
+  position: absolute;
+  top: -20%;
 }
 </style>
