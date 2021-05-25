@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     selectedPlanet: "",
     availableRoutes: [],
+    endDestination: "",
   },
   mutations: {
     SELECTED_PLANET(state, planet) {
@@ -15,8 +16,14 @@ export default new Vuex.Store({
     SET_AVAIBLE_ROUTES(state, routes) {
       state.availableRoutes = routes;
     },
+    SET_END_DESTINATION(state, planet) {
+      state.endDestination = planet;
+    },
   },
   actions: {
+    setEndDestination({ commit }, planetname) {
+      commit("SET_END_DESTINATION", planetname);
+    },
     setSelected({ commit }, planetname) {
       commit("SELECTED_PLANET", planetname);
       switch (planetname) {
@@ -51,6 +58,9 @@ export default new Vuex.Store({
   },
   modules: {},
   getters: {
+    endDestination: (state) => {
+      return state.endDestination;
+    },
     selectedPlanet: (state) => {
       return state.selectedPlanet;
     },

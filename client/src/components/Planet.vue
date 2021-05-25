@@ -1,6 +1,11 @@
 <template>
   <div :class="this.selectedPlanet === '' ? 'allSelectable' : 'otherDisabled'">
-    <div :class="canTravelTo === true ? 'travelAble planetRoot' : 'planetRoot'">
+    <div
+      @click="
+        selectedPlanet != '' && canTravelTo ? setEndDestination(PlanetName) : {}
+      "
+      :class="canTravelTo === true ? 'travelAble planetRoot' : 'planetRoot'"
+    >
       <div
         :class="
           this.selectedPlanet === PlanetName ? 'planet activated' : 'planet '
@@ -25,11 +30,14 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Planet",
   props: ["PlanetTexture", "PlanetName"],
+  methods: {
+    ...mapActions(["setEndDestination"]),
+  },
   computed: {
     ...mapGetters(["selectedPlanet", "availableRoutes"]),
     canTravelTo() {
@@ -42,11 +50,15 @@ export default {
 
 <style lang="scss">
 .otherDisabled {
+  width: 100%;
+  height: 100%;
   .planet {
     filter: grayscale(100%);
     cursor: not-allowed;
   }
   .travelAble {
+    width: 100%;
+    height: 100%;
     .planet {
       filter: contrast(200%) !important;
       cursor: pointer;
@@ -72,7 +84,7 @@ export default {
   width: 300px;
   height: 300px;
   cursor: none;
-  filter: contrast(200%)
+  filter: contrast(200%);
 }
 #jupiter,
 #saturn {

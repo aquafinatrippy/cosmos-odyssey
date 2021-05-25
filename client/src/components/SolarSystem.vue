@@ -14,7 +14,7 @@
         :md="index >= 4 ? 2 : 1"
         sm="6"
         cols="12"
-        @click="setSelected(planet.name)"
+        @click="selectedPlanet === '' ? setSelected(planet.name) : {}"
       >
         <Planet :PlanetName="planet.name" :PlanetTexture="planet.texture">
         </Planet>
@@ -25,7 +25,7 @@
 
 <script>
 import Planet from "./Planet.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "SolarSystem",
@@ -74,7 +74,10 @@ export default {
     Planet,
   },
   methods: {
-    ...mapActions(["setSelected"]),
+    ...mapActions(["setSelected", "setEndDestination"]),
+  },
+  computed: {
+    ...mapGetters(["selectedPlanet"]),
   },
 };
 </script>
