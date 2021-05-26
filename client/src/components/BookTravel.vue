@@ -7,11 +7,17 @@
       :headers="headers"
       class="elevation-1"
     >
-      <template v-slot:item.controls>
-        <v-btn class="ma-1" outlined color="primary">
+      
+      
+      
+      <template v-slot:item.controls="props">
+        <v-btn class="ma-1" outlined color="primary" @click="test(props.item)">
           Select provider
         </v-btn>
-      </template></v-data-table
+      </template>
+      
+      
+      </v-data-table
     >
   </div>
 </template>
@@ -31,6 +37,11 @@ export default {
       { text: "", value: "controls" },
     ],
   }),
+  methods: {
+    test(x){
+      console.log(x)
+    }
+  },
   computed: {
     ...mapGetters(["flightSelection"]),
     providers() {
