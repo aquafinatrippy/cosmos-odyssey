@@ -33,45 +33,19 @@
     <div v-if="endDestination && selectedPlanet">
       <v-btn
         @click="
-          dialog = true;
           getPriceList();
+          $router.push({ name: 'Reservation' });
         "
         color="success"
       >
         Book travel
       </v-btn>
     </div>
-
-    <v-dialog
-      v-model="dialog"
-      fullscreen
-      hide-overlay
-      transition="dialog-bottom-transition"
-    >
-      <v-card>
-        <v-toolbar dark color="primary">
-          <v-btn icon dark @click="dialog = false">
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
-          <v-toolbar-title>Make reservation</v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-toolbar-items>
-            <v-btn dark text @click="dialog = false">
-              Save
-            </v-btn>
-          </v-toolbar-items>
-        </v-toolbar>
-
-        <v-divider></v-divider>
-        <BookTravel />
-      </v-card>
-    </v-dialog>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import BookTravel from "./BookTravel";
 
 export default {
   name: "SelectedPlanets",
@@ -81,9 +55,6 @@ export default {
       chip2: true,
       dialog: false,
     };
-  },
-  components: {
-    BookTravel,
   },
   computed: {
     ...mapGetters(["selectedPlanet", "endDestination"]),
