@@ -15,10 +15,21 @@
       close
       color="red"
       text-color="white"
-      @click:close="chip2 = false"
+      @click:close="setEndDestination('')"
     >
       {{ endDestination }}
     </v-chip>
+    <div>
+      <div v-if="!selectedPlanet">
+        <h3>Select start destination</h3>
+      </div>
+       <div v-if="!endDestination">
+        <h3>Select end destination</h3>
+      </div>
+       <div v-if="selectedPlanet && endDestination">
+        <h3>Confirm and continue</h3>
+      </div>
+    </div>
     <div v-if="endDestination && selectedPlanet">
       <v-btn
         @click="
@@ -78,7 +89,7 @@ export default {
     ...mapGetters(["selectedPlanet", "endDestination"]),
   },
   methods: {
-    ...mapActions(["getPriceList"]),
+    ...mapActions(["getPriceList", "setEndDestination"]),
   },
 };
 </script>
