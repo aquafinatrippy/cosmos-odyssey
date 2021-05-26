@@ -10,7 +10,7 @@ export default new Vuex.Store({
     availableRoutes: [],
     endDestination: "",
     pricelist: [],
-    feedback: ""
+    feedback: "",
   },
   mutations: {
     SELECTED_PLANET(state, planet) {
@@ -25,28 +25,28 @@ export default new Vuex.Store({
     SET_PRICELIST(state, pricelist) {
       state.pricelist = pricelist;
     },
-    SET_FEEDBACK(state, text){
+    SET_FEEDBACK(state, text) {
       state.feedback = text;
-    }
+    },
   },
   actions: {
     async getPriceList({ commit }) {
       const { data } = await axios.get("http://localhost:8000/api/prices");
       commit("SET_PRICELIST", data.pricelist.legs);
     },
-    async createReservation({commit}, reservationInfo){
+    async createReservation({ commit }, reservationInfo) {
       try {
-        await axios.post('localhost:8000/api/reservations', {
+        await axios.post("http://localhost:8000/api/reservations", {
           firstName: reservationInfo.firstname,
           lastName: reservationInfo.lastname,
           routes: reservationInfo.routes,
           totalPrice: reservationInfo.price,
           travelTime: reservationInfo.travelTime,
-          travel_provider: reservationInfo.company
-        })
-        commit("SET_FEEDBACK", 'success')
+          travel_provider: reservationInfo.company,
+        });
+        commit("SET_FEEDBACK", "success");
       } catch (error) {
-        commit("SET_FEEDBACK", error)
+        commit("SET_FEEDBACK", error);
       }
     },
     setEndDestination({ commit }, planetname) {
