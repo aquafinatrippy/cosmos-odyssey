@@ -36,7 +36,7 @@
           getPriceList();
           $router.push({ name: 'Reservation' });
         "
-        color="success"
+        color="primary"
       >
         Book travel
       </v-btn>

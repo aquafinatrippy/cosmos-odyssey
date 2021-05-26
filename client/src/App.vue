@@ -2,12 +2,14 @@
   <v-app>
     <v-main class="starSystem">
       <router-view />
+      <Footer />
     </v-main>
   </v-app>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import Footer from '@/components/Footer';
 
 export default {
   name: "App",
@@ -15,6 +17,9 @@ export default {
   data: () => ({
     //
   }),
+  components: {
+    Footer
+  },
   computed: {
     ...mapGetters(["getPricelist"]),
   },

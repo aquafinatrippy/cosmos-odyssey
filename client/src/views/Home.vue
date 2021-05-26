@@ -2,7 +2,6 @@
   <div>
     <SelectedPlanets />
     <SolarSystem />
-    
   </div>
 </template>
 
