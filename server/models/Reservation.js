@@ -19,8 +19,7 @@ const reservationSchema = mongoose.Schema({
     required: true,
   },
   travelTime: {
-    type: Date,
-    required: true,
+    type: Date
   },
   travel_provider: {
     type: Date,
