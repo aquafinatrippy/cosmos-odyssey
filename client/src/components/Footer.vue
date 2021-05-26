@@ -1,5 +1,5 @@
 <template>
-  <v-footer absolute color="primary" padless>
+  <v-footer  color="primary" padless>
     <v-row justify="center" no-gutters>
       <v-btn
         @click="$router.push({ name: 'About' })"

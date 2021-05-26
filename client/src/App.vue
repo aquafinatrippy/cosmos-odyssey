@@ -2,14 +2,14 @@
   <v-app>
     <v-main class="starSystem">
       <router-view />
-      <Footer />
     </v-main>
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import Footer from '@/components/Footer';
+import Footer from "@/components/Footer";
 
 export default {
   name: "App",
@@ -18,7 +18,7 @@ export default {
     //
   }),
   components: {
-    Footer
+    Footer,
   },
   computed: {
     ...mapGetters(["getPricelist"]),
@@ -29,7 +29,7 @@ export default {
 <style lang="scss">
 .starSystem {
   background: url("~@/assets/starSystem.jpg");
-  height: 100%;
+  height: auto;
   background-size: cover;
 }
 </style>

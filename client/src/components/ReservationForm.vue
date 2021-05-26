@@ -40,6 +40,9 @@
           Make reservation
         </v-btn>
       </v-form>
+      <div v-if="feedback">
+        {{ feedback }}
+      </div>
     </v-container>
   </v-card>
 </template>
@@ -62,7 +65,7 @@ export default {
     checkbox: false,
   }),
   computed: {
-    ...mapGetters(["selectedPlanet", "endDestination"]),
+    ...mapGetters(["selectedPlanet", "endDestination", "feedback"]),
   },
   methods: {
     ...mapActions(["createReservation"]),
@@ -78,8 +81,8 @@ export default {
         routes: `${this.selectedPlanet}, ${this.endDestination}`,
         company: this.flightData.companyName,
       };
-      console.log(data);
       this.createReservation(data);
+      this.$router.push({ name: "History" });
     },
   },
   mounted() {

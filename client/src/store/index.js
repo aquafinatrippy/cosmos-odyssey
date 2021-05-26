@@ -11,6 +11,7 @@ export default new Vuex.Store({
     endDestination: "",
     pricelist: [],
     feedback: "",
+    travelsHistory: [],
   },
   mutations: {
     SELECTED_PLANET(state, planet) {
@@ -28,8 +29,19 @@ export default new Vuex.Store({
     SET_FEEDBACK(state, text) {
       state.feedback = text;
     },
+    SET_HISTORY(state, data) {
+      state.travelsHistory = data;
+    },
   },
   actions: {
+    async getHistory({ commit }) {
+      try {
+        const { data } = await axios.get("http://localhost:8000/api/reservations");
+        commit("SET_HISTORY", data);
+      } catch (error) {
+        console.log(error);
+      }
+    },
     async getPriceList({ commit }) {
       const { data } = await axios.get("http://localhost:8000/api/prices");
       commit("SET_PRICELIST", data.pricelist.legs);
@@ -44,7 +56,7 @@ export default new Vuex.Store({
           travelTime: reservationInfo.travelTime,
           travel_provider: reservationInfo.company,
         });
-        commit("SET_FEEDBACK", "success");
+        commit("SET_FEEDBACK", "Success");
       } catch (error) {
         commit("SET_FEEDBACK", error);
       }
@@ -112,5 +124,8 @@ export default new Vuex.Store({
           price.routeInfo.to.name === EndnameCapitalized
       );
     },
+    historyList: (state) => {
+      return state.travelsHistory;
+    }
   },
 });
