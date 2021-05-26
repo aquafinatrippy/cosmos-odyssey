@@ -28,13 +28,6 @@ export default new Vuex.Store({
   actions: {
     async getPriceList({ commit }) {
       const { data } = await axios.get("http://localhost:8000/api/prices");
-      console.log(data.pricelist.legs);
-      const found = data.pricelist.legs.filter(
-        (price) =>
-          price.routeInfo.from.name === "Earth" &&
-          price.routeInfo.to.name === "Jupiter"
-      );
-      console.log(found);
       commit("SET_PRICELIST", data.pricelist.legs);
     },
     setEndDestination({ commit }, planetname) {
