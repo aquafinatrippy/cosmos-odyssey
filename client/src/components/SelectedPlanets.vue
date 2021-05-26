@@ -4,7 +4,7 @@
       v-if="selectedPlanet"
       class="ma-2"
       close
-      @click:close="chipStart = false"
+      @click:close="!endDestination ? setSelected('') : {}"
     >
       {{ selectedPlanet }}
     </v-chip>
@@ -23,10 +23,10 @@
       <div v-if="!selectedPlanet">
         <h3>Select start destination</h3>
       </div>
-       <div v-if="!endDestination">
+      <div v-if="!endDestination && selectedPlanet">
         <h3>Select end destination</h3>
       </div>
-       <div v-if="selectedPlanet && endDestination">
+      <div v-if="selectedPlanet && endDestination">
         <h3>Confirm and continue</h3>
       </div>
     </div>
@@ -89,7 +89,7 @@ export default {
     ...mapGetters(["selectedPlanet", "endDestination"]),
   },
   methods: {
-    ...mapActions(["getPriceList", "setEndDestination"]),
+    ...mapActions(["getPriceList", "setEndDestination", "setSelected"]),
   },
 };
 </script>
