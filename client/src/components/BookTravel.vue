@@ -6,7 +6,13 @@
       :items="providers"
       :headers="headers"
       class="elevation-1"
-    ></v-data-table>
+    >
+      <template v-slot:item.controls>
+        <v-btn class="ma-1" outlined color="primary">
+          Select provider
+        </v-btn>
+      </template></v-data-table
+    >
   </div>
 </template>
 
@@ -22,15 +28,16 @@ export default {
       { text: "Price", value: "price" },
       { text: "Distance", value: "distance" },
       { text: "Travel time(days)", value: "travelTime" },
+      { text: "", value: "controls" },
     ],
   }),
   computed: {
     ...mapGetters(["flightSelection"]),
     providers() {
       return this.flightSelection[0]?.providers?.map((provider) => ({
-        price: provider.price,
+        price: `${provider.price}€`,
         companyName: provider.company.name,
-        distance: this.flightSelection[0]?.routeInfo?.distance,
+        distance: this.flightSelection[0]?.routeInfo?.distance + " km",
         travelTime: moment(provider?.flightEnd).diff(
           provider?.flightStart,
           "days"
