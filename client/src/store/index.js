@@ -9,6 +9,7 @@ export default new Vuex.Store({
     selectedPlanet: "",
     availableRoutes: [],
     endDestination: "",
+    pricelist: [],
   },
   mutations: {
     SELECTED_PLANET(state, planet) {
@@ -20,11 +21,21 @@ export default new Vuex.Store({
     SET_END_DESTINATION(state, planet) {
       state.endDestination = planet;
     },
+    SET_PRICELIST(state, pricelist) {
+      state.pricelist = pricelist;
+    },
   },
   actions: {
-    async getPriceList(){
-      const {data} = await axios.get('http://cosmos-odyssey.azurewebsites.net/api/v1.0/TravelPrices')
-      console.log(data)
+    async getPriceList({ commit }) {
+      const { data } = await axios.get("http://localhost:8000/api/prices");
+      console.log(data.pricelist.legs);
+      const found = data.pricelist.legs.filter(
+        (price) =>
+          price.routeInfo.from.name === "Earth" &&
+          price.routeInfo.to.name === "Jupiter"
+      );
+      console.log(found);
+      commit("SET_PRICELIST", data.pricelist.legs);
     },
     setEndDestination({ commit }, planetname) {
       commit("SET_END_DESTINATION", planetname);
@@ -71,6 +82,23 @@ export default new Vuex.Store({
     },
     availableRoutes: (state) => {
       return state.availableRoutes;
+    },
+    getPricelist: (state) => {
+      return state.pricelist;
+    },
+    flightSelection: (state) => {
+      let StartnameCapitalized =
+        state.selectedPlanet.charAt(0).toUpperCase() +
+        state.selectedPlanet.slice(1);
+      let EndnameCapitalized =
+        state.endDestination.charAt(0).toUpperCase() +
+        state.endDestination.slice(1);
+
+      return state.pricelist.filter(
+        (price) =>
+          price.routeInfo.from.name === StartnameCapitalized &&
+          price.routeInfo.to.name === EndnameCapitalized
+      );
     },
   },
 });
