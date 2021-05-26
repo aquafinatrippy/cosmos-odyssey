@@ -15,11 +15,12 @@ const reservationSchema = mongoose.Schema({
     required: true,
   },
   totalPrice: {
-    type: Number,
+    type: String,
     required: true,
   },
   travelTime: {
-    type: Date,
+    type: Number,
+    required: true,
   },
   travel_provider: {
     type: String,

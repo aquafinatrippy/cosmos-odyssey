@@ -74,12 +74,12 @@ export default {
         firstname: this.fname,
         lastname: this.lname,
         price: this.flightData.price,
-        distance: this.flightData.distance,
         travelTime: this.flightData.travelTime,
         routes: `${this.selectedPlanet}, ${this.endDestination}`,
         company: this.flightData.companyName,
       };
       console.log(data);
+      this.createReservation(data);
     },
   },
   mounted() {

@@ -37,12 +37,12 @@ export default new Vuex.Store({
     async createReservation({commit}, reservationInfo){
       try {
         await axios.post('localhost:8000/api/reservations', {
-          firstName: reservationInfo.fname,
-          lastName: reservationInfo.lname,
+          firstName: reservationInfo.firstname,
+          lastName: reservationInfo.lastname,
           routes: reservationInfo.routes,
-          totalPrice: reservationInfo.totalPrice,
+          totalPrice: reservationInfo.price,
           travelTime: reservationInfo.travelTime,
-          travel_provider: reservationInfo.provider
+          travel_provider: reservationInfo.company
         })
         commit("SET_FEEDBACK", 'success')
       } catch (error) {
