@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
-
+require('dotenv').config()
 
 mongoose.Promise = global.Promise;
 
 mongoose
-  .connect(process.env.DB_STRING, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useFindAndModify: true,
     useUnifiedTopology: true,
