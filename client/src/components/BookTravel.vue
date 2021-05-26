@@ -7,24 +7,24 @@
       :headers="headers"
       class="elevation-1"
     >
-      
-      
-      
       <template v-slot:item.controls="props">
-        <v-btn class="ma-1" outlined color="primary" @click="test(props.item)">
-          Select provider
-        </v-btn>
+        <v-dialog v-model="x" width="80%" :retain-focus="false">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn class="ma-2" color="primary" v-bind="attrs" v-on="on">
+              Select provider
+            </v-btn>
+          </template>
+          <ReservationForm :flightData="props.item" />
+        </v-dialog>
       </template>
-      
-      
-      </v-data-table
-    >
+    </v-data-table>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import moment from "moment";
+import ReservationForm from "./ReservationForm";
 
 export default {
   name: "BookTravel",
@@ -37,10 +37,11 @@ export default {
       { text: "", value: "controls" },
     ],
   }),
+  components: { ReservationForm },
   methods: {
-    test(x){
-      console.log(x)
-    }
+    test(x) {
+      console.log(x);
+    },
   },
   computed: {
     ...mapGetters(["flightSelection"]),
