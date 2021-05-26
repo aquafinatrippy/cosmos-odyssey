@@ -21,8 +21,6 @@
           required
         ></v-text-field>
 
-        
-
         <v-checkbox
           v-model="checkbox"
           :rules="[(v) => !!v || 'You must agree to continue!']"
@@ -34,7 +32,10 @@
           :disabled="!valid"
           color="primary"
           class="ml-auto"
-          @click="validate"
+          @click="
+            validate();
+            reserve();
+          "
         >
           Make reservation
         </v-btn>
@@ -44,6 +45,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "ReservationForm",
   props: ["flightData"],
@@ -53,16 +56,34 @@ export default {
     lname: "",
     nameRules: [
       (v) => !!v || "Name is required",
-      (v) => (v && v.length <= 20) || "Name must be less than 10 characters",
+      (v) => (v && v.length <= 20) || "Name must be less than 20 characters",
     ],
     select: null,
     checkbox: false,
   }),
-
+  computed: {
+    ...mapGetters(["selectedPlanet", "endDestination"]),
+  },
   methods: {
+    ...mapActions(["createReservation"]),
     validate() {
       this.$refs.form.validate();
     },
+    reserve() {
+      const data = {
+        firstname: this.fname,
+        lastname: this.lname,
+        price: this.flightData.price,
+        distance: this.flightData.distance,
+        travelTime: this.flightData.travelTime,
+        routes: `${this.selectedPlanet}, ${this.endDestination}`,
+        company: this.flightData.companyName,
+      };
+      console.log(data);
+    },
+  },
+  mounted() {
+    console.log(this.flightData);
   },
 };
 </script>
