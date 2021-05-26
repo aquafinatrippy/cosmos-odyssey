@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
   frontend:
@@ -6,14 +6,11 @@ services:
     ports:
       - "8080:8080"
     container_name: frontend-docker
-    restart: always
-    environment:
-      - CHOKIDAR_USEPOLLING=true
     links:
       - backend
 
   backend:
-    build: ./backend
+    build: ./server
     ports:
       - "8000:8000"
     container_name: backend-docker
