@@ -1,7 +1,8 @@
 <template>
   <div>
-    <SolarSystem />
     <SelectedPlanets />
+    <SolarSystem />
+    
   </div>
 </template>
 

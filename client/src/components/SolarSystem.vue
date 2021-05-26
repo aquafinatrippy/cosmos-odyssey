@@ -99,6 +99,10 @@ export default {
 .planetsRow {
   height: 300px;
   margin-top: 10% !important;
+  @media (max-width: 900px){
+    height: auto;
+  margin-top: 0 !important;
+  }
 }
 .sunLocation {
   position: absolute;

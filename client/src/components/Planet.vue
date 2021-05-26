@@ -102,6 +102,9 @@ export default {
     width: 50px;
     height: 50px;
   }
+  @media (max-width: 900px){
+    margin-top: 0;
+  }
 }
 #venus {
   margin-top: 40%;
@@ -110,6 +113,9 @@ export default {
   .background {
     width: 70px;
     height: 70px;
+  }
+  @media (max-width: 900px){
+    margin-top: 0;
   }
 }
 #earth {
@@ -120,6 +126,9 @@ export default {
     width: 75px;
     height: 75px;
   }
+  @media (max-width: 900px){
+    margin-top: 0;
+  }
 }
 #mars {
   width: 60px;
@@ -129,6 +138,9 @@ export default {
   .background {
     width: 60px;
     height: 60px;
+  }
+  @media (max-width: 900px){
+    margin-top: 0;
   }
 }
 #uranus,
