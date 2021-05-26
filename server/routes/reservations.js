@@ -1,11 +1,7 @@
 const router = require("express").Router();
-const Reservation = require("../models/Reservation");
+const controller = require("../controllers/reservations");
 
-router.get("/reservation", async (req, res) => {
-  try {
-    const reservations = await Reservation.find({});
-    res.send(reservations);
-  } catch (error) {
-    res.status(400).send(error);
-  }
-});
+router.get("/", controller.getReservations);
+router.get("/", controller.postReservation);
+
+module.exports = router;
