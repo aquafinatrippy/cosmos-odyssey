@@ -1,3 +1,5 @@
+const Reservation = require("../models/Reservation");
+
 module.exports = {
 	tickets: async (req, res) => {
         try {
