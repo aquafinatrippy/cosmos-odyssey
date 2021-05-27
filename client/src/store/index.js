@@ -36,19 +36,19 @@ export default new Vuex.Store({
   actions: {
     async getHistory({ commit }) {
       try {
-        const { data } = await axios.get("http://localhost:8000/api/reservations");
+        const { data } = await axios.get("/api/reservations");
         commit("SET_HISTORY", data);
       } catch (error) {
         console.log(error);
       }
     },
     async getPriceList({ commit }) {
-      const { data } = await axios.get("http://localhost:8000/api/prices");
+      const { data } = await axios.get("/api/prices");
       commit("SET_PRICELIST", data.pricelist.legs);
     },
     async createReservation({ commit }, reservationInfo) {
       try {
-        await axios.post("http://localhost:8000/api/reservations", {
+        await axios.post("/api/reservations", {
           firstName: reservationInfo.firstname,
           lastName: reservationInfo.lastname,
           routes: reservationInfo.routes,
@@ -126,6 +126,6 @@ export default new Vuex.Store({
     },
     historyList: (state) => {
       return state.travelsHistory;
-    }
+    },
   },
 });
