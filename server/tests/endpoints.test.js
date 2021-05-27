@@ -1,15 +1,12 @@
-// const app = require('../index')
-// const supertest = require('supertest')
-// const request = supertest(app)
+import request from "supertest";
+import app from "../app.js";
+import {jest} from '@jest/globals';
 
-// beforeAll(async () => {
-//     const url = `mongodb://127.0.0.1/service-desk`
-//     await mongoose.connect(url, { useNewUrlParser: true })
-//   })
-
-// it('Gets the tickets endpoint', async done => {
-//     const res = await request('/api/tickets')
-
-//     expect(res.status).toBe(200)
-//     done()
-// })
+describe("Get api/prices", () => {
+  describe("get all prices from api", () => {
+    test("should return all prices", async () => {
+      const response = await request(app).get("/api/prices");
+      expect(response.statusCode).toBe(200);
+    });
+  });
+});
