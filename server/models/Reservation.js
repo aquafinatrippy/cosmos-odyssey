@@ -1,5 +1,4 @@
-const mongoose = require("../database");
-const validator = require("validator");
+import mongoose from "../database.js";
 
 const reservationSchema = mongoose.Schema({
   firstName: {
@@ -24,10 +23,10 @@ const reservationSchema = mongoose.Schema({
   },
   travel_provider: {
     type: String,
-    required: true
+    required: true,
   },
 });
 
 const Reservation = mongoose.model("Reservation", reservationSchema);
 
-module.exports = Reservation;
+export default Reservation;

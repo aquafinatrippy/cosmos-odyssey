@@ -1,6 +1,6 @@
-const fetch = require("node-fetch");
+import fetch from 'node-fetch'
 
-module.exports = {
+export default  {
   prices: async (req, res) => {
     try {
       const url =

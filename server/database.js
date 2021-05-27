@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
-require('dotenv').config()
+import mongoose from 'mongoose';
+import dotenv from 'dotenv'
+dotenv.config()
 
 mongoose.Promise = global.Promise;
 
@@ -16,4 +17,4 @@ mongoose
     console.log(err);
   });
 
-module.exports = mongoose;
+export default mongoose;

@@ -1,11 +1,13 @@
-const express = require("express");
+import express from 'express'
 
-const pricesRouter = require("./routes/travelprices");
-const reservationsRouter = require("./routes/reservations")
+import pricesRouter from './routes/travelprices.js'
+import reservationsRouter from './routes/reservations.js'
 
 const router = express.Router();
 
 router.use("/prices", pricesRouter);
 router.use("/reservations", reservationsRouter)
 
-module.exports = router;
+
+
+export default router;

@@ -1,6 +1,6 @@
-const Reservation = require("../models/Reservation");
+import Reservation from '../models/Reservation.js'
 
-module.exports = {
+export default {
   getReservations: async (req, res) => {
     try {
       const reservations = await Reservation.find({});
