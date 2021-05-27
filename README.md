@@ -23,8 +23,8 @@ Running e2e test made possible by Cypress:
 
 Run backend unit test:
 
-1. 'cd server': Go to server folder
-2: 'npm run test': Starts tests
+1. `cd server`: Go to server folder
+2: `npm run test`: Starts tests
 
 ## To push live
 
