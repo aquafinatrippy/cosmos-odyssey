@@ -24,8 +24,7 @@ const reservationSchema = mongoose.Schema({
   },
   travel_provider: {
     type: String,
-    required: true,
-    default: Date.now,
+    required: true
   },
 });
 
