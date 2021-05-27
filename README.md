@@ -18,7 +18,7 @@ Open in browser: `http://localhost:8080/`
 
 Running e2e test made possible by Cypress:
 
-1. `cd frontend`: Go to frontend folder
+1. `cd frontend`: Go to client folder
 2. `npm run test:e2e`: Starts e2e testing
 
 Run backend unit test:
@@ -34,4 +34,4 @@ git subtree push --prefix server heroku master
 
 Front-end: Vue
 
-Back-end: Express
+Back-end: Express (es6)
