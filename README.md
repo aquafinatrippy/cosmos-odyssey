@@ -15,6 +15,10 @@ Open up two terminal windows.
 `On first one`, 'cd server', 'npm install' and 'npm run start'. 
 `Second terminal window`, 'cd client', 'npm install' and 'npm run serve'
 
+## ENV setup for db
+
+At server folder create new .env file and in there add Mongodb connection string: MONGODB_URI={here goes connection string}
+
 ## Using this repo
 
 Open in browser: `http://localhost:8080/`
