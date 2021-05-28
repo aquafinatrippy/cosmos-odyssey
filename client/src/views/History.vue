@@ -2,7 +2,13 @@
   <div>
     <Navbar />
     <v-container>
-      <v-row>
+      <div v-if="getLoading" class="text-center">
+        <v-progress-circular
+          indeterminate
+          color="primary"
+        ></v-progress-circular>
+      </div>
+      <v-row v-else>
         <v-col v-for="history in historyList" :key="history._id">
           <v-card class="mx-auto" color="primary" dark max-width="400">
             <v-card-text>
@@ -29,7 +35,7 @@ export default {
     this.getHistory();
   },
   computed: {
-    ...mapGetters(["historyList"]),
+    ...mapGetters(["historyList", "getLoading"]),
   },
 };
 </script>

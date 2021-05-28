@@ -12,6 +12,7 @@ export default new Vuex.Store({
     pricelist: [],
     feedback: "",
     travelsHistory: [],
+    loading: false,
   },
   mutations: {
     SELECTED_PLANET(state, planet) {
@@ -32,22 +33,33 @@ export default new Vuex.Store({
     SET_HISTORY(state, data) {
       state.travelsHistory = data;
     },
+    SET_LOADING(state) {
+      state.loading = true;
+    },
+    SET_LOADED(state) {
+      state.loading = false;
+    },
   },
   actions: {
     async getHistory({ commit }) {
       try {
+        commit("SET_LOADING");
         const { data } = await axios.get("/api/reservations");
         commit("SET_HISTORY", data);
+        commit("SET_LOADED");
       } catch (error) {
         console.log(error);
       }
     },
     async getPriceList({ commit }) {
+      commit("SET_LOADING");
       const { data } = await axios.get("/api/prices");
       commit("SET_PRICELIST", data.pricelist.legs);
+      commit("SET_LOADED");
     },
     async createReservation({ commit }, reservationInfo) {
       try {
+        commit("SET_LOADING");
         await axios.post("/api/reservations", {
           firstName: reservationInfo.firstname,
           lastName: reservationInfo.lastname,
@@ -57,6 +69,7 @@ export default new Vuex.Store({
           travel_provider: reservationInfo.company,
         });
         commit("SET_FEEDBACK", "Success");
+        commit("SET_LOADED");
       } catch (error) {
         commit("SET_FEEDBACK", error);
       }
@@ -100,6 +113,9 @@ export default new Vuex.Store({
   getters: {
     endDestination: (state) => {
       return state.endDestination;
+    },
+    getLoading: (state) => {
+      return state.loading;
     },
     selectedPlanet: (state) => {
       return state.selectedPlanet;
