@@ -10,7 +10,7 @@ live link: https://mysterious-shelf-95293.herokuapp.com/
 
 Run with docker. At root folder run: `docker-compose up --build`
 
-`Run with node version 13+`. 
+`Run with node version 13+ (without docker)`. 
 Open up two terminal windows.
 `On first one`, 'cd server', 'npm install' and 'npm run start'. 
 `Second terminal window`, 'cd client', 'npm install' and 'npm run serve'
