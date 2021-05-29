@@ -1,16 +1,15 @@
 FROM node:latest
 
 RUN mkdir -p /usr/src/app
-RUN mkdir -p /usr/src/app/server
+RUN mkdir -p /usr/src/app/backend
 
-WORKDIR /usr/src/app/server
+WORKDIR /usr/src/app/backend
 
 COPY package*.json ./
 RUN npm install
 
 COPY . .
 
-EXPOSE 8000
+EXPOSE 3000
 
 CMD ["npm", "start"]
-
