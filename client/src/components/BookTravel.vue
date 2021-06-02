@@ -8,7 +8,7 @@
       class="elevation-1"
     >
       <template v-slot:item.controls="props">
-        <v-dialog  width="80%" :retain-focus="false">
+        <v-dialog width="80%" :retain-focus="false">
           <template v-slot:activator="{ on, attrs }">
             <v-btn class="ma-2" color="primary" v-bind="attrs" v-on="on">
               Select provider
@@ -49,6 +49,7 @@ export default {
           provider?.flightStart,
           "days"
         ),
+        expireAt: provider?.flightStart,
       }));
     },
   },

@@ -67,6 +67,7 @@ export default new Vuex.Store({
           totalPrice: reservationInfo.price,
           travelTime: reservationInfo.travelTime,
           travel_provider: reservationInfo.company,
+          expireAt: reservationInfo.expireAt,
         });
         commit("SET_FEEDBACK", "Success");
         commit("SET_LOADED");
