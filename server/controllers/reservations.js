@@ -3,7 +3,9 @@ import Reservation from "../models/Reservation.js";
 export default {
   getReservations: async (req, res) => {
     try {
-      const reservations = await Reservation.find({});
+      const reservations = await Reservation.find({})
+        .sort({ $natural: -1 })
+        .limit(15);
       res.send(reservations);
     } catch (error) {
       res.status(400).send(error);
