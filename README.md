@@ -7,7 +7,7 @@ live link: https://mysterious-shelf-95293.herokuapp.com/
 ## Installation
 
 `'Important'` add .end to server folder with mongodb cloud cluster. 
-`Example:` MONGODB_URI=mongodb+srv://<user>:<passowrd>@cluster0.mungu.mongodb.net/cosmosOdyssey?retryWrites=true&w=majority
+`Example:` MONGODB_URI=mongodb+srv://`dbusername`:`dbpassword`@cluster0.mungu.mongodb.net/cosmosOdyssey?retryWrites=true&w=majority
 
 1. Clone this Git repository: `git clone https://github.com/aquafinatrippy/cosmos-odyssey.git`
 
