@@ -1,4 +1,4 @@
-import Reservation from '../models/Reservation.js'
+import Reservation from "../models/Reservation.js";
 
 export default {
   getReservations: async (req, res) => {
@@ -18,7 +18,7 @@ export default {
         totalPrice: req.body.totalPrice,
         travelTime: req.body.travelTime,
         travel_provider: req.body.travel_provider,
-        expireAt: req.body.expireAt
+        expireAt: req.body.expireAt,
       });
       await reservation.save();
       res.send(reservation);

@@ -1,1 +1,4 @@
 MONGODB_URI=
+
+
+cloud db example: mongodb+srv://<user>:<passowrd>@cluster0.mungu.mongodb.net/cosmosOdyssey?retryWrites=true&w=majority
