@@ -8,6 +8,9 @@
           color="primary"
         ></v-progress-circular>
       </div>
+      <div v-else-if="historyList.length === 0">
+        <h1>No travels booked</h1>
+      </div>
       <v-row v-else>
         <v-col v-for="history in historyList" :key="history._id">
           <v-card class="mx-auto" color="primary" dark max-width="400">
