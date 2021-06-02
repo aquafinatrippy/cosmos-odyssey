@@ -4,6 +4,8 @@ import axios from "axios";
 
 Vue.use(Vuex);
 
+const url = process.env.NODE_ENV === "development" ? "http://localhost:3000" : ""
+
 export default new Vuex.Store({
   state: {
     selectedPlanet: "",
@@ -44,7 +46,7 @@ export default new Vuex.Store({
     async getHistory({ commit }) {
       try {
         commit("SET_LOADING");
-        const { data } = await axios.get("/api/reservations");
+        const { data } = await axios.get(url + "/api/reservations");
         commit("SET_HISTORY", data);
         commit("SET_LOADED");
       } catch (error) {
@@ -53,7 +55,7 @@ export default new Vuex.Store({
     },
     async getPriceList({ commit }) {
       commit("SET_LOADING");
-      const { data } = await axios.get("/api/prices");
+      const { data } = await axios.get(url + "/api/prices");
       commit("SET_PRICELIST", data.pricelist.legs);
       commit("SET_LOADED");
     },
