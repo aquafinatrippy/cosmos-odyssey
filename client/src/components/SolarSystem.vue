@@ -97,11 +97,11 @@ export default {
   }
 }
 .planetsRow {
-  height: 300px;
+  height: 100%;
   margin-top: 10% !important;
-  @media (max-width: 900px){
+  @media (max-width: 900px) {
     height: auto;
-  margin-top: 0 !important;
+    margin-top: 0 !important;
   }
 }
 .sunLocation {

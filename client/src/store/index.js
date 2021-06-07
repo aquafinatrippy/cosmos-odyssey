@@ -56,7 +56,7 @@ export default new Vuex.Store({
     async getPriceList({ commit }) {
       commit("SET_LOADING");
       const { data } = await axios.get(url + "/api/prices");
-      commit("SET_PRICELIST", data.pricelist.legs);
+      commit("SET_PRICELIST", data.TravelPrices.legs);
       commit("SET_LOADED");
     },
     async createReservation({ commit }, reservationInfo) {

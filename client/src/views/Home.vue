@@ -1,6 +1,8 @@
 <template>
   <div>
-    <SelectedPlanets />
+    <v-card  rounded class="mx-auto mt-5" max-width="344" height="150" outlined>
+      <v-card-text><SelectedPlanets /></v-card-text>
+    </v-card>
     <SolarSystem />
   </div>
 </template>

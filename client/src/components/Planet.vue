@@ -102,7 +102,7 @@ export default {
     width: 50px;
     height: 50px;
   }
-  @media (max-width: 900px){
+  @media (max-width: 960px) {
     margin-top: 0;
   }
 }
@@ -114,7 +114,7 @@ export default {
     width: 70px;
     height: 70px;
   }
-  @media (max-width: 900px){
+  @media (max-width: 960px) {
     margin-top: 0;
   }
 }
@@ -126,7 +126,7 @@ export default {
     width: 75px;
     height: 75px;
   }
-  @media (max-width: 900px){
+  @media (max-width: 960px) {
     margin-top: 0;
   }
 }
@@ -139,7 +139,7 @@ export default {
     width: 60px;
     height: 60px;
   }
-  @media (max-width: 900px){
+  @media (max-width: 960px) {
     margin-top: 0;
   }
 }

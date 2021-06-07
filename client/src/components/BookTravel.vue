@@ -49,7 +49,6 @@ export default {
           provider?.flightStart,
           "days"
         ),
-        expireAt: provider?.flightStart,
       }));
     },
   },

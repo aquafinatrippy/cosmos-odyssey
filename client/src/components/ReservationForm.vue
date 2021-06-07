@@ -85,8 +85,5 @@ export default {
       this.$router.push({ name: "History" });
     },
   },
-  mounted() {
-    console.log(this.flightData);
-  },
 };
 </script>
