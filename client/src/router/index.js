@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Reservation from "../views/Reservation.vue";
 import History from "../views/History.vue";
+import NotFound from "../views/NotFound.vue";
 
 Vue.use(VueRouter);
 
@@ -33,7 +34,7 @@ const routes = [
   },
   {
     path: "*",
-    component: Home,
+    component: NotFound,
   },
 ];
 

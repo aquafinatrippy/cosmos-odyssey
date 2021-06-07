@@ -1,11 +1,10 @@
 <template>
   <v-app>
-    <div v-if="windowWidth < 960">
+    <div v-if="windowWidth < 960 && currentRouteName === 'Home'">
       <v-btn
         class="md-5 mr-3 elevation-21 mt-5"
         dark
         fab
-        
         right
         color="primary"
         fixed
@@ -36,11 +35,6 @@ export default {
   components: {
     Footer,
   },
-  watch: {
-    windowWidth(newHeight, oldHeight) {
-      this.txt = `it changed to ${newHeight} from ${oldHeight}`;
-    },
-  },
 
   mounted() {
     this.$nextTick(() => {
@@ -66,6 +60,9 @@ export default {
   },
   computed: {
     ...mapGetters(["getPricelist"]),
+    currentRouteName() {
+      return this.$route.name;
+    },
   },
 };
 </script>
