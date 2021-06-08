@@ -30,7 +30,6 @@
 export default {
   name: "Footer",
   data: () => ({
-    links: ["Home", "About Us", "Team", "Services", "Blog", "Contact Us"],
   }),
 };
 </script>
