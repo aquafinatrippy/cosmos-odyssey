@@ -25,10 +25,6 @@ const reservationSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  expireAt: {
-    type: Date,
-    required: true,
-  },
 });
 
 const Reservation = mongoose.model("Reservation", reservationSchema);

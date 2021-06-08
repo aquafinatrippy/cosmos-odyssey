@@ -12,7 +12,13 @@
         <h1>No travels booked</h1>
       </div>
       <v-row v-else>
-        <v-col v-for="history in historyList" :key="history._id">
+        <v-col
+          v-for="history in historyList"
+          :key="history._id"
+          sm="12"
+          cols="12"
+          md="4"
+        >
           <v-card class="mx-auto" color="primary" dark max-width="400">
             <v-card-text>
               Routes: {{ history.routes }} <br />

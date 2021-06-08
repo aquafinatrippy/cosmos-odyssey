@@ -4,7 +4,8 @@ import axios from "axios";
 
 Vue.use(Vuex);
 
-const url = process.env.NODE_ENV === "development" ? "http://localhost:3000" : ""
+const url =
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "";
 
 export default new Vuex.Store({
   state: {
@@ -68,8 +69,7 @@ export default new Vuex.Store({
           routes: reservationInfo.routes,
           totalPrice: reservationInfo.price,
           travelTime: reservationInfo.travelTime,
-          travel_provider: reservationInfo.company,
-          expireAt: reservationInfo.expireAt,
+          travel_provider: reservationInfo.company
         });
         commit("SET_FEEDBACK", "Success");
         commit("SET_LOADED");
@@ -116,6 +116,9 @@ export default new Vuex.Store({
   getters: {
     endDestination: (state) => {
       return state.endDestination;
+    },
+    getFeedback: (state) => {
+      return state.feedback;
     },
     getLoading: (state) => {
       return state.loading;

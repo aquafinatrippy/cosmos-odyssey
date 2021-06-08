@@ -28,20 +28,22 @@
           required
         ></v-checkbox>
 
-        <v-btn
-          :disabled="!valid"
-          color="primary"
-          class="ml-auto"
-          @click="
-            validate();
-            reserve();
-          "
-        >
-          Make reservation
-        </v-btn>
+        <div v-if="checkbox === true">
+          <v-btn
+            :disabled="!valid"
+            color="primary"
+            class="ml-auto"
+            @click="
+              validate();
+              reserve();
+            "
+          >
+            Make reservation
+          </v-btn>
+        </div>
       </v-form>
-      <div v-if="feedback">
-        {{ feedback }}
+      <div v-if="getFeedback">
+        {{ getFeedback }}
       </div>
     </v-container>
   </v-card>
@@ -54,7 +56,7 @@ export default {
   name: "ReservationForm",
   props: ["flightData"],
   data: () => ({
-    valid: true,
+    valid: false,
     fname: "",
     lname: "",
     nameRules: [
@@ -65,7 +67,7 @@ export default {
     checkbox: false,
   }),
   computed: {
-    ...mapGetters(["selectedPlanet", "endDestination", "feedback"]),
+    ...mapGetters(["selectedPlanet", "endDestination", "getFeedback"]),
   },
   methods: {
     ...mapActions(["createReservation"]),

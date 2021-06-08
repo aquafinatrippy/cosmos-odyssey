@@ -19,8 +19,7 @@ export default {
         routes: req.body.routes,
         totalPrice: req.body.totalPrice,
         travelTime: req.body.travelTime,
-        travel_provider: req.body.travel_provider,
-        expireAt: req.body.expireAt,
+        travel_provider: req.body.travel_provider
       });
       await reservation.save();
       res.send(reservation);
