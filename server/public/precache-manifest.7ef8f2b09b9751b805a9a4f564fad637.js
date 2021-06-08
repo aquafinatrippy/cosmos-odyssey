@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f183b997219e7563d332",
-    "url": "/css/app.58f7210d.css"
+    "revision": "6d0b37bc392cb968947c",
+    "url": "/css/app.cc98f7de.css"
   },
   {
     "revision": "33c60de7afbf171b22e9",
@@ -56,7 +56,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/venus.01a6a7a4.jpg"
   },
   {
-    "revision": "bdf51bef3d2f8d775a8a1c87bafebd6e",
+    "revision": "37be22323e970ccf97738df2114748b3",
     "url": "/index.html"
   },
   {
@@ -64,8 +64,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.e7ab64be.js"
   },
   {
-    "revision": "f183b997219e7563d332",
-    "url": "/js/app.9ddb9f3b.js"
+    "revision": "6d0b37bc392cb968947c",
+    "url": "/js/app.b3b2955a.js"
   },
   {
     "revision": "33c60de7afbf171b22e9",
