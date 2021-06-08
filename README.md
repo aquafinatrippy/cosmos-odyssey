@@ -2,7 +2,11 @@
 
 This is a repo for cosmos odyssey application. 
 
-live link: https://mysterious-shelf-95293.herokuapp.com/
+`Few things are under development. Application isnt fully finished`
+
+live link: https://space-odyssey-travel-system.herokuapp.com/
+
+
 
 ## Installation
 
@@ -39,6 +43,10 @@ Run backend unit test:
 ## To push live
 
 git subtree push --prefix server heroku master
+
+## Documentation
+
+API documentation is in going, but preview is up how its going to look. Path to it is: /api-docs
 
 ## Extra info
 
