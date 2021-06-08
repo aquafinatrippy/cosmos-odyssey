@@ -1,14 +1,21 @@
 // https://docs.cypress.io/api/introduction/api.html
 
 describe("Pages visiting", () => {
+  it("visit the about page", () => {
+    cy.visit("/about");
+    cy.contains("h1", "About page");
+  });
   it("Visits the app root url", () => {
     cy.visit("/");
     cy.contains("h3", "Select start destination");
   });
-  // it("visit the about page", () => {
-  //   cy.visit("/");
-  //   cy.contains("h1", "About page");
-  // })
+  it("visit the history page", () => {
+    cy.visit("/history");
+    cy.contains("h2", "Latest reservations");
+    cy.get("button span")
+      .contains("Back")
+      .click();
+  });
 });
 
 describe("Items selecting and deselecting", () => {
@@ -27,5 +34,4 @@ describe("Items selecting and deselecting", () => {
   it("Select second planet again", () => {
     cy.get("#venus").click();
   });
-
 });

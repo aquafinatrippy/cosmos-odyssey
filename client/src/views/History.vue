@@ -2,6 +2,9 @@
   <div>
     <Navbar />
     <v-container>
+      <div style="text-align:center;">
+        <h2>Latest reservations</h2>
+      </div>
       <div v-if="getLoading" class="text-center">
         <v-progress-circular
           indeterminate
