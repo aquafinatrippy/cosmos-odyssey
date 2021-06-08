@@ -10,12 +10,12 @@ live link: https://space-odyssey-travel-system.herokuapp.com/
 
 ## Installation
 
-*** With Docker
+* With Docker
 1. Clone this Git repository: `git clone https://github.com/aquafinatrippy/cosmos-odyssey.git`
 
 Run with docker. At root folder run: `docker-compose up --build`
 
-*** With terminals
+* With terminals
 `Run with node version 13+ (without docker)` 
 
 Open up two terminal windows.
