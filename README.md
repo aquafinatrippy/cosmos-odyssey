@@ -17,10 +17,11 @@ live link: https://space-odyssey-travel-system.herokuapp.com/
 
 Run with docker. At root folder run: `docker-compose up --build`
 
-`Run with node version 13+ (without docker)`. 
+`Run with node version 13+ (without docker)` 
+
 Open up two terminal windows.
-`On first one`, 'cd server', 'npm install' and 'npm run start'. 
-`Second terminal window`, 'cd client', 'npm install' and 'npm run serve'
+1. `On first one`, 'cd server', 'npm install' and 'npm run start'. 
+2. `Second terminal window`, 'cd client', 'npm install' and 'npm run serve'
 
 ## ENV setup for db
 
