@@ -8,24 +8,21 @@ live link: https://space-odyssey-travel-system.herokuapp.com/
 
 
 
-## Installation
+## Installation Docker
 
-`'Important'` add .end to server folder with mongodb cloud cluster. 
-`Example:` MONGODB_URI=mongodb+srv://`dbusername`:`dbpassword`@cluster0.mungu.mongodb.net/cosmosOdyssey?retryWrites=true&w=majority
 
-1. Clone this Git repository: `git clone https://github.com/aquafinatrippy/cosmos-odyssey.git`
+* Clone this Git repository: `git clone https://github.com/aquafinatrippy/cosmos-odyssey.git`
+* cd {project folder}.
+* In terminal at root folder run: `docker-compose up --build`
 
-Run with docker. At root folder run: `docker-compose up --build`
 
-`Run with node version 13+ (without docker)` 
+## Installation terminal
 
-Open up two terminal windows.
-1. `On first one`, 'cd server', 'npm install' and 'npm run start'. 
-2. `Second terminal window`, 'cd client', 'npm install' and 'npm run serve'
-
-## ENV setup for db
-
-At server folder create new .env file and in there add Mongodb connection string: MONGODB_URI={here goes connection string}
+* Clone this Git repository: `git clone https://github.com/aquafinatrippy/cosmos-odyssey.git`
+* At server folder create new .env file and in there add Mongodb connection string: MONGODB_URI={here goes connection string}
+* Open up two terminal windows.
+* `On first one`, 'cd server', 'npm install' and 'npm run start'.
+* `Second terminal window`, 'cd client', 'npm install' and 'npm run serve'
 
 ## Using this repo
 
