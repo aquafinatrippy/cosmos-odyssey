@@ -1,10 +1,13 @@
 import express from "express";
 import controller from "../controllers/user.js";
 import checkAPIs from "express-validator";
+import auth from "../middlewares/authJwt.js";
 
 const { check } = checkAPIs;
 
 const router = express.Router();
+
+router.get("/current", auth, controller.currentUser);
 
 router.post(
   "/register",

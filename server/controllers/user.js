@@ -6,6 +6,15 @@ import User from "../models/User.js";
 const { validationResult } = checkAPIs;
 
 export default {
+  currentUser: async (req, res) => {
+    try {
+      const user = await User.findById(req.user.id);
+      res.json(user);
+    } catch (e) {
+      res.send({ message: "Error in Fetching user" });
+    }
+  },
+
   loginUser: async (req, res) => {
     const errors = validationResult(req);
 
